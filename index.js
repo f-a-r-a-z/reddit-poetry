@@ -14,7 +14,7 @@ const timeSpans = ['day', 'week', 'month', 'all'];
 const mb = 2**20;
 
 app.get('/', (req, res) => {
-    return res.send(req.params.subreddit);
+    return res.send("test");
 });
 
 app.listen(process.env.PORT,

@@ -5,6 +5,7 @@ const express = require('express');
 const app = express();
 
 // Globals
+const verses = 5;
 let rhymingTitlesMap = {};
 let redditAfterId = '';
 let bytesUsed = 0;
@@ -13,8 +14,14 @@ let currentTimeSpan = 0;
 const timeSpans = ['day', 'week', 'month', 'all'];
 const mb = 2**20;
 
-app.get('/', (req, res) => {
-    return res.send("test");
+app.get('/', async (req, res) => {
+    const subreddit = req.params.subreddit || '';
+    
+    if (!subreddit) return res.send('');
+
+    const poem = await main(subreddit);
+
+    return res.send(poem);
 });
 
 app.listen(process.env.PORT,

@@ -15,7 +15,7 @@ const timeSpans = ['day', 'week', 'month', 'all'];
 const mb = 2**20;
 
 app.get('/', async (req, res) => {
-    const subreddit = req.params.subreddit || '';
+    const subreddit = req.query.subreddit || '';
     
     if (!subreddit) return res.send('');
 

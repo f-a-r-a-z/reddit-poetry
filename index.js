@@ -133,5 +133,5 @@ function createPoem() {
         }
     }
 
-    return titles.join('\n');
+    return titles.join('</br>');
 }

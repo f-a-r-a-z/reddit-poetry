@@ -17,6 +17,10 @@ app.get('/', (req, res) => {
     return res.send(req);
 });
 
+app.listen(process.env.PORT,
+    () => console.log(`Example app listening on port ${process.env.PORT}!`)
+);
+
 
 async function main(subreddit, verses) {
     rhymingTitlesMap = {};

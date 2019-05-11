@@ -16,10 +16,10 @@ const mb = 2**20;
 
 app.get('/', async (req, res) => {
     const subreddit = req.query.subreddit || '';
-    
+
     if (!subreddit) return res.send('');
 
-    const poem = await main(subreddit);
+    const poem = await main(subreddit, verses);
 
     return res.send(poem);
 });

@@ -21,12 +21,6 @@ const cache = newCache()
 
 setInterval(() => cache.cleanUp(), CACHE_RESET_TIME_MS);
 
-if (isProduction) {
-	console.log('Warming up cache');
-	const mostPopularSubreddits = ['announcements', 'funny', 'AskReddit', 'gaming', 'pics', 'science', 'worldnews', 'todayilearned', 'aww', 'movies', 'videos', 'Music', 'IAmA', 'gifs', 'news', 'EarthPorn', 'askscience', 'Showerthoughts', 'blog', 'explainlikeimfive', 'books', 'Jokes', 'DIY', 'LifeProTips', 'food', 'mildlyinteresting', 'Art', 'sports', 'television', 'space', 'gadgets', 'nottheonion', 'photoshopbattles', 'Documentaries', 'listentothis', 'GetMotivated', 'UpliftingNews', 'tifu', 'InternetIsBeautiful', 'history', 'Futurology', 'philosophy', 'OldSchoolCool', 'personalfinance', 'WritingPrompts', 'dataisbeautiful', 'nosleep', 'creepy', 'TwoXChromosomes', 'technology', 'Fitness', 'AdviceAnimals', 'WTF', 'politics', 'bestof', 'memes', 'wholesomememes', 'interestingasfuck', 'BlackPeopleTwitter', 'oddlysatisfying', 'leagueoflegends', 'lifehacks', 'travel', 'pcmasterrace', 'facepalm', 'woahdude', 'relationships', 'atheism', 'PS', 'me', 'irl', 'dankmemes', 'nba', 'Overwatch', 'Tinder', 'AnimalsBeingBros', 'AnimalsBeingJerks', 'NatureIsFuckingLit', 'reactiongifs', 'gameofthrones', 'tattoos', 'Whatcouldgowrong', 'FoodPorn', 'malefashionadvice', 'europe', 'programming', 'trippinthroughtime', 'Unexpected', 'boardgames', 'BikiniBottomTwitter', 'gardening', 'pokemongo', 'Games', 'hiphopheads', 'instant', 'regret', 'Android', 'dadjokes', 'itookapicture', 'iphone'];
-	warmUpCache(mostPopularSubreddits);
-}
-
 const warmUpCache = async (subredditList, options = {}) => {
 	const MINUTE = 60 * 1000;
 	const timeout = options.timeout || MINUTE;
@@ -42,5 +36,11 @@ const warmUpCache = async (subredditList, options = {}) => {
 		}
 	}
 };
+
+if (isProduction) {
+	console.log('Warming up cache');
+	const mostPopularSubreddits = ['announcements', 'funny', 'AskReddit', 'gaming', 'pics', 'science', 'worldnews', 'todayilearned', 'aww', 'movies', 'videos', 'Music', 'IAmA', 'gifs', 'news', 'EarthPorn', 'askscience', 'Showerthoughts', 'blog', 'explainlikeimfive', 'books', 'Jokes', 'DIY', 'LifeProTips', 'food', 'mildlyinteresting', 'Art', 'sports', 'television', 'space', 'gadgets', 'nottheonion', 'photoshopbattles', 'Documentaries', 'listentothis', 'GetMotivated', 'UpliftingNews', 'tifu', 'InternetIsBeautiful', 'history', 'Futurology', 'philosophy', 'OldSchoolCool', 'personalfinance', 'WritingPrompts', 'dataisbeautiful', 'nosleep', 'creepy', 'TwoXChromosomes', 'technology', 'Fitness', 'AdviceAnimals', 'WTF', 'politics', 'bestof', 'memes', 'wholesomememes', 'interestingasfuck', 'BlackPeopleTwitter', 'oddlysatisfying', 'leagueoflegends', 'lifehacks', 'travel', 'pcmasterrace', 'facepalm', 'woahdude', 'relationships', 'atheism', 'PS', 'me', 'irl', 'dankmemes', 'nba', 'Overwatch', 'Tinder', 'AnimalsBeingBros', 'AnimalsBeingJerks', 'NatureIsFuckingLit', 'reactiongifs', 'gameofthrones', 'tattoos', 'Whatcouldgowrong', 'FoodPorn', 'malefashionadvice', 'europe', 'programming', 'trippinthroughtime', 'Unexpected', 'boardgames', 'BikiniBottomTwitter', 'gardening', 'pokemongo', 'Games', 'hiphopheads', 'instant', 'regret', 'Android', 'dadjokes', 'itookapicture', 'iphone'];
+	warmUpCache(mostPopularSubreddits);
+}
 
 module.exports = cache;

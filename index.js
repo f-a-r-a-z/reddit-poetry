@@ -1,27 +1,29 @@
-const cache = require('memory-cache');
 const express = require('express');
+const cache = require('./cache.js');
+const getPoemJSONString = require('./poetry.js');
+
 const app = express();
-const RedditPoem = require('./poetry.js');
+const PORT = process.env.PORT || 3000;
 
+app.get('/', async (request, response) => {
+	const subreddit = request.query.subreddit || '';
+	let poemJSONString = '[]';
 
-app.get('/', async (req, res) => {
-    const subreddit = req.query.subreddit || '';
+	if (!subreddit) {
+		return response.send(poemJSONString);
+	}
 
-    if (!subreddit) return res.send('');
+	if (cache.has(subreddit)) {
+		poemJSONString = cache.getIfPresent(subreddit) || poemJSONString;
+	} else {
+		poemJSONString = await getPoemJSONString(subreddit);
+		cache.set(subreddit, poemJSONString);
+	}
 
-    return res.send(await getPoem(subreddit));
+	return response.send(poemJSONString);
 });
 
-app.listen(process.env.PORT,
-    () => console.log(`App is listening on port ${process.env.PORT}!`)
+app.listen(
+	PORT,
+	() => console.log(`App is listening on port ${PORT}!`)
 );
-
-const getPoem = async subreddit => {
-    try {
-        const poem = new RedditPoem(subreddit);
-        const poem_json = await poem.generateJSON();
-        return JSON.stringify(poem_json);
-    } catch(exception) {
-        return '[]';
-    }
-};

@@ -70,7 +70,7 @@ class RedditPoem {
 
 	escapeHTMLFromTitle(post) {
 		const escapedPost = {...post};
-		post.title = htmlEscape(post.title);
+		escapedPost.title = htmlEscape(escapedPost.title);
 		return escapedPost;
 	}
 

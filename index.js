@@ -15,7 +15,9 @@ app.get('/', async (request, response) => {
 
 	if (cache.has(subreddit)) {
 		poemJSONString = cache.getIfPresent(subreddit) || poemJSONString;
-	} else {
+	}
+
+	if (poemJSONString.length < 50) { // Not in cache or cache is bad
 		poemJSONString = await getPoemJSONString(subreddit);
 		cache.set(subreddit, poemJSONString);
 	}

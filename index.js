@@ -1,3 +1,4 @@
+const cors = require('cors');
 const express = require('express');
 const cache = require('./cache.js');
 const getPoemJSONString = require('./poetry.js');
@@ -5,7 +6,7 @@ const getPoemJSONString = require('./poetry.js');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get('/', async (request, response) => {
+app.get('/', cors(), async (request, response) => {
 	const subreddit = request.query.subreddit || '';
 	let poemJSONString = '[]';
 

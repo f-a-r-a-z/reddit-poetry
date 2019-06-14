@@ -58,7 +58,7 @@ class Reddit {
 
 	get defaults() {
 		return {
-			maxPages: 30
+			maxPages: 5
 		};
 	}
 }

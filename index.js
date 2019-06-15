@@ -1,29 +1,31 @@
 const cors = require('cors');
 const express = require('express');
 const cache = require('./cache.js');
-const getPoemJSONString = require('./poetry.js');
+const getPoemJSON = require('./poetry.js');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get('/', cors(), async (request, response) => {
 	const subreddit = request.query.subreddit || '';
-	let poemJSONString = '[]';
+	let poemJSON = [];
 
 	if (!subreddit) {
-		return response.send(poemJSONString);
+		return response.json(poemJSON);
 	}
 
-	if (cache.has(subreddit)) {
-		poemJSONString = cache.getIfPresent(subreddit) || poemJSONString;
+	const cached = cache.has(subreddit);
+	if (cached) {
+		poemJSON = cache.getIfPresent(subreddit) || poemJSON;
 	}
 
-	if (poemJSONString.length < 50) { // Not in cache or cache is bad
-		poemJSONString = await getPoemJSONString(subreddit);
-		cache.set(subreddit, poemJSONString);
+	const badCache = cached && (!poemJSON || !poemJSON.length || poemJSON.length < 2);
+	if (!cached || badCache) {
+		poemJSON = await getPoemJSON(subreddit);
+		cache.set(subreddit, poemJSON);
 	}
 
-	return response.send(poemJSONString);
+	return response.json(poemJSON);
 });
 
 app.listen(

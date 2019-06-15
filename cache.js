@@ -1,13 +1,13 @@
 const sleep = require('sleep-promise');
 const {newCache, RemovalReason} = require('transitory');
-const getPoemJSONString = require('./poetry.js');
+const getPoemJSON = require('./poetry.js');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const DAY_MS = 24 * 60 * 60 * 1000;
 const CACHE_RESET_TIME_MS = DAY_MS;
 const CACHE_MAX_ITEMS = 250;
 
-const whenCacheItemRemoved = (subreddit, poemJSONString, reason) => {
+const whenCacheItemRemoved = (subreddit, poemJSON, reason) => {
 	if (reason === RemovalReason.EXPIRED) {
 		warmUpCache([subreddit]);
 	}
@@ -30,8 +30,8 @@ const warmUpCache = async (subredditList, options = {}) => {
 		if (cache.has(subreddit)) {
 			continue;
 		}
-		const poemJSONString = await getPoemJSONString(subreddit);
-		cache.set(subreddit, poemJSONString);
+		const poemJSON = await getPoemJSON(subreddit);
+		cache.set(subreddit, poemJSON);
 
 		const lastElement = i === subredditList.length - 1;
 		if (!lastElement) {

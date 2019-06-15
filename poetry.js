@@ -1,4 +1,3 @@
-const {htmlEscape} = require('escape-goat');
 const extractwords = require('extractwords');
 const extractRhymingPart = require('rhyming-part');
 const Reddit = require('./reddit.js');
@@ -64,21 +63,18 @@ class RedditPoem {
 				posts = posts.concat(rhymingPostsToUse);
 			}
 		}
-		const escapedPosts = posts.map(this.escapeHTMLFromTitle);
-		return escapedPosts;
-	}
-
-	escapeHTMLFromTitle(post) {
-		const escapedPost = {...post};
-		escapedPost.title = htmlEscape(escapedPost.title);
-		return escapedPost;
+		return posts;
 	}
 
 	invalidTitle(title) {
-		const hasNumber = /\d/.test(title);
+		const lastWord = extractwords(title, {punctuation: true}).pop();
+
+		const hasNumber = /\d/.test(lastWord);
+		const hasAmbiguousPunctuation = /[+&%#@]/.test(lastWord); // # -> sharp or hash etc
+
 		const tooLong = title.length > this.options.maxTitleLength;
 		const tooShort = title.length < this.options.minTitleLength;
-		return hasNumber || tooLong || tooShort;
+		return hasNumber || hasAmbiguousPunctuation || tooLong || tooShort;
 	}
 
 	alreadyInRhymingMap(title) {
@@ -108,20 +104,20 @@ class RedditPoem {
 	get defaults() {
 		return {
 			verses: 3,
-			maxTitleLength: 100,
-			minTitleLength: 30
+			maxTitleLength: 80,
+			minTitleLength: 15
 		};
 	}
 }
 
-const getPoemJSONString = async (subreddit, options = {}) => {
+const getPoemJSON = async (subreddit, options = {}) => {
 	try {
 		const poem = new RedditPoem(subreddit, options);
 		const poemJSON = await poem.generateJSON();
-		return JSON.stringify(poemJSON);
+		return poemJSON;
 	} catch (error) {
-		return '[]';
+		return [];
 	}
 };
 
-module.exports = getPoemJSONString;
+module.exports = getPoemJSON;

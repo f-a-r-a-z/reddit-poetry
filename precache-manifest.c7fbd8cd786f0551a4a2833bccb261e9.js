@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "87cd128b8f83f6a05d21d821316cbd13",
+    "revision": "6afe34b80cef3b828b6505cdd7a830ef",
     "url": "/reddit-poetry/index.html"
   },
   {

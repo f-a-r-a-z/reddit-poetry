@@ -1,17 +1,16 @@
 {
-  "name": "reddit-poetry",
+  "name": "reddit-poetry-server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "echo \"All good\" && exit 0",
+    "start": "node server/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Faraz",
   "license": "MIT",
   "dependencies": {
-    "cmu-pronouncing-dictionary": "^1.0.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "extractwords": "^1.1.1",

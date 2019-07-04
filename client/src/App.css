@@ -1,0 +1,73 @@
+.App {
+	--bg-color: #282c34;
+	background-color: var(--bg-color);
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.text-style {
+	--font-size: calc(16px + 2vmin);
+	font-size: var(--font-size);
+	font-family: "Work Sans";
+	color: white;
+	font-size: calc(16px + 2vmin);
+	letter-spacing: 0.1em;
+}
+
+.subreddit-input {
+	padding: 5ch;
+}
+.subreddit-input input {
+	background-color: transparent;
+	border: transparent;
+	outline: none;
+	text-decoration: none;
+	border-bottom: 2px solid white;
+	transition: 0.5s;
+}
+
+.subreddit-input input:focus {
+	border-bottom: 6px solid white;
+	margin-bottom: -4px;
+}
+
+.subreddit-submit {
+	display: inline;
+}
+
+.subreddit-submit-button {
+	background-color: transparent;
+	border: 2px solid white;
+	outline: none;
+	margin: 1ch;
+	transition: 0.25s;
+}
+
+.subreddit-submit-button:hover {
+	background-color: white;
+	color: var(--bg-color);
+	cursor: pointer;
+}
+
+.subreddit-poem {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.subreddit-poem-line {
+	margin: 1ch 3ch;
+}
+
+.subreddit-poem-link:link, .subreddit-poem-link:visited, .subreddit-poem-link:hover, .subreddit-poem-link:active {
+	text-decoration: none;
+}
+
+.subreddit-poem-link {
+	border-bottom: 2px solid white;
+	font-size: calc(var(--font-size) - 6px);
+}

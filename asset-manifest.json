@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/reddit-poetry/static/css/main.a3358ed2.chunk.css",
+    "main.js": "/reddit-poetry/static/js/main.fda244f4.chunk.js",
+    "main.js.map": "/reddit-poetry/static/js/main.fda244f4.chunk.js.map",
+    "runtime~main.js": "/reddit-poetry/static/js/runtime~main.92da7abf.js",
+    "runtime~main.js.map": "/reddit-poetry/static/js/runtime~main.92da7abf.js.map",
+    "static/js/2.e12e0f7b.chunk.js": "/reddit-poetry/static/js/2.e12e0f7b.chunk.js",
+    "static/js/2.e12e0f7b.chunk.js.map": "/reddit-poetry/static/js/2.e12e0f7b.chunk.js.map",
+    "index.html": "/reddit-poetry/index.html",
+    "precache-manifest.d79baf41678cb2ae3d620ca8d7470264.js": "/reddit-poetry/precache-manifest.d79baf41678cb2ae3d620ca8d7470264.js",
+    "service-worker.js": "/reddit-poetry/service-worker.js",
+    "static/css/main.a3358ed2.chunk.css.map": "/reddit-poetry/static/css/main.a3358ed2.chunk.css.map"
+  }
+}

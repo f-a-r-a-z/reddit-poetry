@@ -70,11 +70,11 @@ class RedditPoem {
 		const lastWord = extractwords(title, {punctuation: true}).pop();
 
 		const hasNumber = /\d/.test(lastWord);
-		const hasAmbiguousPunctuation = /[+&%#@]/.test(lastWord); // # -> sharp or hash etc
-
+		const hasAmbiguousPunctuation = /[+&%#@$£¢]/.test(lastWord); // # -> sharp or hash etc
+		const weirdCharacters = lastWord.split("").map(char => char.charCodeAt(0)).some(charCode => charCode > 191); // Strange characters like ÅØ
 		const tooLong = title.length > this.options.maxTitleLength;
 		const tooShort = title.length < this.options.minTitleLength;
-		return hasNumber || hasAmbiguousPunctuation || tooLong || tooShort;
+		return hasNumber || hasAmbiguousPunctuation || tooLong || tooShort || weirdCharacters;
 	}
 
 	alreadyInRhymingMap(title) {

@@ -18,12 +18,14 @@
 }
 
 .subreddit-input {
-	padding: 5ch;
+	padding: 5ch 0ch;
+	min-width: 0;
 }
 .subreddit-input input {
 	background-color: transparent;
 	border: transparent;
 	outline: none;
+	width: 10em;
 	text-decoration: none;
 	border-bottom: 2px solid white;
 	transition: 0.5s;

@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Reddit Poetry",
+  "name": "Reddit Poetry",
   "icons": [
     {
       "src": "favicon.ico",

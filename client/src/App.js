@@ -91,9 +91,11 @@ class SubredditPoem extends React.Component {
 		}
 
 		return (
-			<div className="subreddit-poem">
-				{jsx}
-			</div>
+			<center>
+				<div className="subreddit-poem">
+					{jsx}
+				</div>
+			</center>
 		);
 	}
 }

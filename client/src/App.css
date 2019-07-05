@@ -11,7 +11,7 @@
 .text-style {
 	--font-size: calc(16px + 2vmin);
 	font-size: var(--font-size);
-	font-family: "Work Sans";
+	font-family: "Arial Black", Gadget, sans-serif;
 	color: white;
 	font-size: calc(16px + 2vmin);
 	letter-spacing: 0.1em;

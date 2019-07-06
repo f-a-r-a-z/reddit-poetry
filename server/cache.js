@@ -5,7 +5,7 @@ const getPoemJSON = require('./poetry.js');
 const isProduction = process.env.NODE_ENV === 'production';
 const DAY_MS = 24 * 60 * 60 * 1000;
 const CACHE_RESET_TIME_MS = DAY_MS;
-const CACHE_MAX_ITEMS = 250;
+const CACHE_MAX_ITEMS = 300;
 
 const whenCacheItemRemoved = (subreddit, poemJSON, reason) => {
 	if (reason === RemovalReason.EXPIRED) {

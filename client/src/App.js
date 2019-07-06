@@ -83,7 +83,7 @@ class SubredditPoem extends React.Component {
 
 		if (loading) {
 			jsx = <Loading />;
-		} else if (!poemJSON || poemJSON.length <= 2) {
+		} else if (!poemJSON || poemJSON.length < 2) {
 			jsx = <Error />;
 		} else {
 			jsx = getPoemJSX(poemJSON);

@@ -1,5 +1,5 @@
 # Reddit Poetry
-Randomly generate poetry from Reddit titles
+Randomly generate poetry from Reddit titles: http://f-a-r-a-z.github.io/reddit-poetry
 
 ## Building
 Firstly fork the repository and pull its contents onto your machine

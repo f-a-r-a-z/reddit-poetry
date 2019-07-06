@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/reddit-poetry/precache-manifest.4a57c9a7a8d338cec22cfae3c26350bc.js"
+  "/reddit-poetry/precache-manifest.3c7b7aaddb0c22b4fcac5ab950873b9e.js"
 );
 
 self.addEventListener('message', (event) => {

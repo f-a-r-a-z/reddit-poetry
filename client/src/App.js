@@ -10,25 +10,25 @@ function App() {
 		<div className="App text-style">
 			<SubredditInput subreddit={subreddit} />
 			{hasSubredditInput && <SubredditPoem subreddit={subreddit} />}
+			<Footer />
 		</div>
 	);
 }
 
 function SubredditInput(props) {
 	return (
-		<div className="subreddit-input">
-			<form method="get">
-				/r/<input
-					type="text"
-					name="subreddit"
-					defaultValue={props.subreddit}
-					className="text-style"
-					spellCheck="false"
-					placeholder="AskReddit"
-					autoComplete="off" />
-				<SubredditSubmit />
-			</form>
-		</div>
+		<form method="get" className="subreddit-input">
+			<label htmlFor="subreddit" hidden={true}>Subreddit: </label>
+			/r/<input
+				type="text"
+				name="subreddit"
+				defaultValue={props.subreddit}
+				className="text-style"
+				spellCheck="false"
+				placeholder="AskReddit"
+				autoComplete="off" />
+			<SubredditSubmit />
+		</form>
 	);
 }
 
@@ -36,8 +36,7 @@ function SubredditSubmit() {
 	return (
 		<div className="subreddit-submit">
 			<button
-			className="subreddit-submit-button text-style"
-			onClick={()=>{}}>
+			className="subreddit-submit-button text-style">
 				➡
 			</button>
 		</div>
@@ -92,9 +91,9 @@ class SubredditPoem extends React.Component {
 
 		return (
 			<center>
-				<div className="subreddit-poem">
+				<article className="subreddit-poem">
 					{jsx}
-				</div>
+				</article>
 			</center>
 		);
 	}
@@ -102,16 +101,14 @@ class SubredditPoem extends React.Component {
 
 function PoemLine(props) {
 	return (
-		<div className="subreddit-poem-line">
+		<p className="subreddit-poem-line">
 			<a
 				href={`https://reddit.com${props.permalink}`}
-				className="subreddit-poem-link text-style"
+				className="link text-style"
 				dangerouslySetInnerHTML={{__html: props.title}} // Prevent react double-escaping html
-				target="_blank"
-				rel="noopener noreferrer"
 			></a>
 			<br />
-		</div>
+		</p>
 	);
 }
 
@@ -128,6 +125,20 @@ function Error() {
 		<div className="error">
 			Something went wrong...
 		</div>
+	);
+}
+
+function Footer() {
+	return (
+		<footer>
+			<center>
+				<a
+				href="https://github.com/f-a-r-a-z/reddit-poetry"
+				className="link text-style">
+					Source on GitHub
+				</a>
+			</center>
+		</footer>
 	);
 }
 

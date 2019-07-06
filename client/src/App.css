@@ -44,11 +44,11 @@
 	background-color: transparent;
 	border: 2px solid white;
 	outline: none;
-	margin: 1ch;
+	margin-left: 1ch;
 	transition: 0.25s;
 }
 
-.subreddit-submit-button:hover {
+.subreddit-submit-button:hover, .subreddit-submit-button:focus {
 	background-color: white;
 	color: var(--bg-color);
 	cursor: pointer;
@@ -59,17 +59,20 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
+	margin-bottom: 5ch;
 }
 
 .subreddit-poem-line {
 	margin: 1ch 3ch;
 }
 
-.subreddit-poem-link:link, .subreddit-poem-link:visited, .subreddit-poem-link:hover, .subreddit-poem-link:active {
+.link {
 	text-decoration: none;
-}
-
-.subreddit-poem-link {
 	border-bottom: 2px solid white;
 	font-size: calc(var(--font-size) - 6px);
+}
+
+footer {
+	margin-top: auto;
+	margin-bottom: 1ch;
 }

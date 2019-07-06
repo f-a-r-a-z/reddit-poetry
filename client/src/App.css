@@ -1,5 +1,5 @@
 .App {
-	--bg-color: #282c34;
+	--bg-color: #861657; /* Fallback until setRandomBackgroundColor runs */
 	background-color: var(--bg-color);
 	min-height: 100vh;
 	display: flex;
@@ -11,21 +11,20 @@
 .text-style {
 	--font-size: calc(16px + 2vmin);
 	font-size: var(--font-size);
-	font-family: "Arial Black", Gadget, sans-serif;
+	font-family: "Arial Black", "Arial", Gadget, sans-serif;
 	color: white;
 	font-size: calc(16px + 2vmin);
 	letter-spacing: 0.1em;
 }
 
 .subreddit-input {
-	padding: 5ch 0ch;
-	min-width: 0;
+	margin: 5vw 0;
 }
 .subreddit-input input {
 	background-color: transparent;
 	border: transparent;
 	outline: none;
-	width: 10em;
+	width: 50vw;
 	text-decoration: none;
 	border-bottom: 2px solid white;
 	transition: 0.5s;
@@ -37,6 +36,10 @@
 	margin-bottom: -4px;
 }
 
+.subreddit-input input::placeholder {
+	color: rgba(255, 255, 255, 0.5);
+}
+
 .subreddit-submit {
 	display: inline;
 }
@@ -45,7 +48,7 @@
 	background-color: transparent;
 	border: 2px solid white;
 	outline: none;
-	margin-left: 1ch;
+	margin-left: 2.5vw;
 	transition: 0.25s;
 }
 
@@ -60,20 +63,19 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
-	margin-bottom: 5ch;
+	margin: 5vh 7.5vw;
 }
 
 .subreddit-poem-line {
-	margin: 1ch 3ch;
 }
 
 .link {
 	text-decoration: none;
 	border-bottom: 2px solid white;
-	font-size: calc(var(--font-size) - 6px);
+	font-size: calc(var(--font-size) - 8px);
 }
 
 footer {
 	margin-top: auto;
-	margin-bottom: 1ch;
+	margin-bottom: 5vh;
 }

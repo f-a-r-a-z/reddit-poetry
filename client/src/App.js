@@ -1,18 +1,30 @@
 import React from 'react';
 import './App.css';
 
-function App() {
-	const urlParams = new URLSearchParams(window.location.search);
-	const subreddit = urlParams.get("subreddit") || "";
-	const hasSubredditInput = subreddit.length > 0;
+class App extends React.Component {
+	componentDidMount() {
+		setRandomBackgroundColor();
+	}
 
-	return (
-		<div className="App text-style">
-			<SubredditInput subreddit={subreddit} />
-			{hasSubredditInput && <SubredditPoem subreddit={subreddit} />}
-			<Footer />
-		</div>
-	);
+	render() {
+		const urlParams = new URLSearchParams(window.location.search);
+		const subreddit = urlParams.get("subreddit") || "";
+		const hasSubredditInput = subreddit.length > 0;
+
+		return (
+			<div className="App text-style">
+				<SubredditInput subreddit={subreddit} />
+				{hasSubredditInput && <SubredditPoem subreddit={subreddit} />}
+				<Footer />
+			</div>
+		);
+	}
+}
+
+function setRandomBackgroundColor() {
+	const backgroundColors = ['#7BAE7F', '#DF2935', '#C68F61', '#412722', '#6320EE', '#211A1D', '#829EAF', '#FF934F', '#735D78', '#839E8E', '#861657'];
+	const backgroundColor = backgroundColors[Math.floor(Math.random() * backgroundColors.length)];
+	document.querySelector('.App').style.setProperty('--bg-color', backgroundColor);
 }
 
 function SubredditInput(props) {
@@ -131,13 +143,11 @@ function Error() {
 function Footer() {
 	return (
 		<footer>
-			<center>
 				<a
 				href="https://github.com/f-a-r-a-z/reddit-poetry"
 				className="link text-style">
 					Source on GitHub
 				</a>
-			</center>
 		</footer>
 	);
 }

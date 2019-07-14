@@ -11,14 +11,15 @@
 .text-style {
 	--font-size: calc(16px + 2vmin);
 	font-size: var(--font-size);
-	font-family: "Arial Black", "Arial", Gadget, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 1000;
 	color: white;
 	font-size: calc(16px + 2vmin);
 	letter-spacing: 0.1em;
 }
 
 .subreddit-input {
-	margin: 5vw 0;
+	margin-top: 5vh;
 }
 .subreddit-input input {
 	background-color: transparent;
@@ -29,6 +30,7 @@
 	border-bottom: 2px solid white;
 	transition: 0.5s;
 	text-overflow: ellipsis;
+	border-radius: 0; /* Remove rounding on Safari */
 }
 
 .subreddit-input input:focus {
@@ -37,7 +39,8 @@
 }
 
 .subreddit-input input::placeholder {
-	color: rgba(255, 255, 255, 0.5);
+	color: white;
+	opacity: 0.5;
 }
 
 .subreddit-submit {
@@ -63,10 +66,11 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
-	margin: 5vh 7.5vw;
+	margin: 2.5vh 7.5vw;
 }
 
 .subreddit-poem-line {
+	margin: 2.5vh 0;
 }
 
 .link {
@@ -78,4 +82,10 @@
 footer {
 	margin-top: auto;
 	margin-bottom: 5vh;
+	font-size: calc(var(--font-size) - 12px);
+	opacity: 0.7;
+}
+
+footer .link {
+	font-size: calc(var(--font-size) - 12px);
 }

@@ -14,7 +14,10 @@ class App extends React.Component {
 		return (
 			<div className="App text-style">
 				<SubredditInput subreddit={subreddit} />
-				{hasSubredditInput && <SubredditPoem subreddit={subreddit} />}
+				{hasSubredditInput
+					? <SubredditPoem subreddit={subreddit} />
+					: <EnterMessage />}
+				<br />
 				<Footer />
 			</div>
 		);
@@ -49,7 +52,7 @@ function SubredditSubmit() {
 		<div className="subreddit-submit">
 			<button
 			className="subreddit-submit-button text-style">
-				➡
+				→
 			</button>
 		</div>
 	);
@@ -124,26 +127,34 @@ function PoemLine(props) {
 	);
 }
 
+function EnterMessage() {
+	return (
+		<p>
+			Enter a subreddit
+		</p>
+	);
+}
+
 function Loading() {
 	return (
-		<div className="loading">
+		<p>
 			Loading...
-		</div>
+		</p>
 	);
 }
 
 function Error() {
 	return (
-		<div className="error">
+		<p>
 			Something went wrong...
-		</div>
+		</p>
 	);
 }
 
 function Footer() {
 	return (
 		<footer>
-				<a
+				Poems refreshed daily | <a
 				href="https://github.com/f-a-r-a-z/reddit-poetry"
 				className="link text-style">
 					Source on GitHub

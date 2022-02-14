@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/reddit-poetry/static/css/main.2e2f6d59.chunk.css",
-    "main.js": "/reddit-poetry/static/js/main.ef80c2cb.chunk.js",
-    "main.js.map": "/reddit-poetry/static/js/main.ef80c2cb.chunk.js.map",
+    "main.css": "/reddit-poetry/static/css/main.4938b726.chunk.css",
+    "main.js": "/reddit-poetry/static/js/main.afae4a51.chunk.js",
+    "main.js.map": "/reddit-poetry/static/js/main.afae4a51.chunk.js.map",
     "runtime~main.js": "/reddit-poetry/static/js/runtime~main.92da7abf.js",
     "runtime~main.js.map": "/reddit-poetry/static/js/runtime~main.92da7abf.js.map",
-    "static/js/2.a9ca1a38.chunk.js": "/reddit-poetry/static/js/2.a9ca1a38.chunk.js",
-    "static/js/2.a9ca1a38.chunk.js.map": "/reddit-poetry/static/js/2.a9ca1a38.chunk.js.map",
+    "static/js/2.9297ea1f.chunk.js": "/reddit-poetry/static/js/2.9297ea1f.chunk.js",
+    "static/js/2.9297ea1f.chunk.js.map": "/reddit-poetry/static/js/2.9297ea1f.chunk.js.map",
     "index.html": "/reddit-poetry/index.html",
-    "precache-manifest.ebb901f9e57760ff9274bc2c0a143a8c.js": "/reddit-poetry/precache-manifest.ebb901f9e57760ff9274bc2c0a143a8c.js",
+    "precache-manifest.2144eadeb6a6bdd4d892de31d86fed88.js": "/reddit-poetry/precache-manifest.2144eadeb6a6bdd4d892de31d86fed88.js",
     "service-worker.js": "/reddit-poetry/service-worker.js",
-    "static/css/main.2e2f6d59.chunk.css.map": "/reddit-poetry/static/css/main.2e2f6d59.chunk.css.map"
+    "static/css/main.4938b726.chunk.css.map": "/reddit-poetry/static/css/main.4938b726.chunk.css.map"
   }
 }

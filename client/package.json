@@ -4,8 +4,8 @@
 	"private": true,
 	"homepage": "http://f-a-r-a-z.github.io/reddit-poetry",
 	"dependencies": {
-		"react": "^16.8.6",
-		"react-dom": "^16.8.6",
+		"react": "^16.14.0",
+		"react-dom": "^16.14.0",
 		"react-scripts": "3.0.1"
 	},
 	"scripts": {
@@ -32,6 +32,6 @@
 		]
 	},
 	"devDependencies": {
-		"gh-pages": "^2.0.1"
+		"gh-pages": "^2.2.0"
 	}
 }
